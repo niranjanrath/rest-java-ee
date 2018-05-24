@@ -1,0 +1,48 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: '2018-05-19T18:51:05Z'
+  labels:
+    app: rest-java-ee
+  name: rest-java-ee
+  namespace: rest-java-ee
+  resourceVersion: '2506643929'
+  selfLink: /apis/build.openshift.io/v1/namespaces/rest-java-ee/buildconfigs/rest-java-ee
+  uid: 95989b04-5b95-11e8-ba6c-1250f17a13c8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'rest-java-ee:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/niranjanrath/rest-java-ee.git'
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'wildfly:10.1'
+        namespace: openshift
+    type: Source
+  triggers:
+    - imageChange:
+        lastTriggeredImageID: >-
+          docker.io/openshift/wildfly-101-centos7@sha256:a2661f20f2e870520a73765f783de105c61916235a541332acd1501c2ee76280
+      type: ImageChange
+    - type: ConfigChange
+    - generic:
+        secret: 10b323f3a151c73d
+      type: Generic
+    - github:
+        secret: b9901fae51bca185
+      type: GitHub
+status:
+  lastVersion: 2
