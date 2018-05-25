@@ -18,6 +18,12 @@ public class BookEndPoint {
     public List<Book> getBooks() {
         List<Book> list = new ArrayList<>();
         list.add(Book.builder().id(1).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(2).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(3).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(4).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(5).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(6).author("Niranjan").available(false).price(10.56).title("test title").build());
+        list.add(Book.builder().id(7).author("Niranjan").available(false).price(10.56).title("test title").build());
         return list;
     }
 }
